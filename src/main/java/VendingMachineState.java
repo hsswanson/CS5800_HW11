@@ -1,2 +1,3 @@
-public class VendingMachineState  {
+public interface VendingMachineState {
+    void handleRequest(VendingMachine machine);
 }
