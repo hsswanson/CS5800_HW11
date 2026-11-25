@@ -21,7 +21,7 @@ public class Main {
         machine.handleRequests();
         machine.selectSnack("Snickers");
         machine.handleRequests();
-        while(machine.getBalance()>1.50){
+        while(machine.getBalance()>=1.50){
             machine.selectSnack("KitKat");
             machine.handleRequests();
         }
