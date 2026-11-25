@@ -7,7 +7,7 @@ public class VendingMachine {
     public VendingMachine(){
         state = new ReadyState();
         dispenser = new SnackDispenser(new Coke(), new SnackDispenser(new Pepsi(), new SnackDispenser(new Cheetos(), new SnackDispenser(new Doritos(), new SnackDispenser(new KitKat(),new SnackDispenser(new Snickers()))))));
-
+        handleRequest();
     }
 
     public void handleRequest(){
@@ -40,6 +40,15 @@ public class VendingMachine {
     }
     public double getBalance(){
         return balance;
+    }
+
+    public void handleRequests(){
+        while(selected!=null){
+            handleRequest();
+        }
+    }
+    public void displayBalance(){
+        System.out.println("Current balance:"+balance);
     }
 
 
