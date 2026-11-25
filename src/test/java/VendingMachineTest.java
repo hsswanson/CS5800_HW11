@@ -36,6 +36,17 @@ public class VendingMachineTest {
         machine.handleRequest();        //dispensing product
         assertEquals(0, snack.getQuantity());
         assertEquals(8-snack.getPrice(), machine.getBalance());
+        machine.handleRequest();        //awaiting selection
+        machine.selectSnack("Snickers");
+        machine.handleRequest();;       //out of stock
+
+        machine.handleRequest();    //awaiting selection
+        machine.selectSnack("Butterfingers");
+        machine.handleRequest();        //product not found
+        assertNull(machine.getSelected());
+        machine.handleRequest();        //awaiting selection
+
+
 
     }
 
